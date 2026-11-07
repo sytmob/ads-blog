@@ -10,6 +10,20 @@ modeled line-for-line on `google/three-live`'s proven Pages workflow.
 
 ---
 
+## 0. Current deployment status
+
+This repo **ships live via classic branch-based Pages** (`main` → root,
+`.nojekyll` bypasses Jekyll). Every push to `main` redeploys automatically —
+no build step exists, so this is the leanest loop.
+
+The GitHub Actions pipeline in `.github/workflows/deploy-pages.yml` is
+committed and ready, but its first run was blocked by an account-level
+flag (`account is locked due to a billing issue` — Actions runners refuse
+to start regardless of repo content). Once billing is resolved for the
+owning account (Settings → Billing), flip **Settings → Pages → Source:
+"GitHub Actions"** and the two-job deploy takes over. Section 1 below
+documents that workflow's structure.
+
 ## 1. Deploy in five minutes
 
 1. Create a **new, public** GitHub repository and push this folder to it
